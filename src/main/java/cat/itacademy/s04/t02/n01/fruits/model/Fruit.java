@@ -1,11 +1,15 @@
 package cat.itacademy.s04.t02.n01.fruits.model;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
 public class Fruit {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private int quantityKg;
