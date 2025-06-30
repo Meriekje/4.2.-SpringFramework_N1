@@ -5,13 +5,20 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+
 @Entity
 public class Fruit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @NotBlank(message = "Name cannot be empty.")
     private String name;
+
+    @Min(value = 0, message = "Quantity must be 0 or superior.")
     private int quantityKg;
 
     public Fruit() {}
